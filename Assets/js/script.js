@@ -32,16 +32,17 @@ document.getElementById("search").addEventListener("click", function (){
         document.getElementById("fiveDayWeather").innerHTML = "";
 
         //Five Day Weather Forecast
-        for (var i= 7; i<data.list.length; i+=8){
-            document.getElementById("fiveDayWeather").innerHTML += `
-                <div>
-                <h3>Date: ${data.list[i].dt_txt.substring(0, 10)}</h3>
-                <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
-                <p>Weather Condition: ${data.list[i].weather[0].description}</p>
-                <p>Temperature: ${data.list[i].main.temp}°C</p>
-                <p>Humidity: ${data.list[i].main.humidity}%</p>
-                <p>Wind Speed: ${data.list[i].wind.speed} MPH</p>
-                </div>`;
-        }
+for (var i = 0; i < data.list.length; i += 8) {
+    var forecastCard = document.createElement("div");
+    forecastCard.classList.add("forecast-card");
+    forecastCard.innerHTML = `
+        <h3>Date: ${data.list[i].dt_txt.substring(0, 10)}</h3>
+        <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png"/>
+        <p>Weather Condition: ${data.list[i].weather[0].description}</p>
+        <p>Temperature: ${data.list[i].main.temp}°F</p>
+        <p>Humidity: ${data.list[i].main.humidity}%</p>
+        <p>Wind Speed: ${data.list[i].wind.speed} MPH</p>`;
+    document.getElementById("fiveDayWeather").appendChild(forecastCard);
+}
     })
 });

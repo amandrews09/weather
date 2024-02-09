@@ -27,12 +27,21 @@ document.getElementById("search").addEventListener("click", function (){
         var wind = document.createElement("p")
         wind.innerText = "Wind: "+currentDay.wind.speed+"mph"
         document.getElementById("currentWeather").appendChild(wind)
-        //Five Day Weather Forecast
-        // for (var i= 7; i<data.list.length; i+=8){
-        //    var fiveDay = data.list[i]
         
+        // Clear previous forecast
+        document.getElementById("fiveDayWeather").innerHTML = "";
 
-
-        // }
+        //Five Day Weather Forecast
+        for (var i= 7; i<data.list.length; i+=8){
+            document.getElementById("fiveDayWeather").innerHTML += `
+                <div>
+                <h3>Date: ${data.list[i].dt_txt.substring(0, 10)}</h3>
+                <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png"/>
+                <p>Weather Condition: ${data.list[i].weather[0].description}</p>
+                <p>Temperature: ${data.list[i].main.temp}°C</p>
+                <p>Humidity: ${data.list[i].main.humidity}%</p>
+                <p>Wind Speed: ${data.list[i].wind.speed} MPH</p>
+                </div>`;
+        }
     })
-})
+});

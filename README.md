@@ -7,7 +7,7 @@ Welcome to our Weather Forecast Dashboard, providing you with a comprehensive ou
 
 ## Installation 
 
-[linkToDeployedPage](https://amandrews09.github.io/taco-night/)
+[linkToDeployedPage](https://amandrews09.github.io/weather)
 
 ## Usage
 [screenshot](./Assets/Screenshot%202024-02-09%20134853.png)
